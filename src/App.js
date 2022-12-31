@@ -4,10 +4,16 @@ import BookCreate from "./components/BookCreate";
 function App() {
   const [books, setBooks] = useState([]);
 
-  const createBook = (book) => {
-    setBooks([...books, book]);
+  const createBook = (title) => {
+    setBooks([
+      ...books,
+      {
+        id: Math.round(Math.random() * 10000),
+        title,
+      },
+    ]);
   };
-  
+  console.log("Books:", books)
   return (
     <div>
       <BookCreate onCreate={createBook} />
