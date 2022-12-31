@@ -6,11 +6,10 @@ function App() {
 
   const createBook = (book) => {
     setBooks([...books, book]);
-  }
-  console.log(books.length, "books", books);
+  };
+  
   return (
-    <div className="App">
-      App
+    <div>
       <BookCreate onCreate={createBook} />
     </div>
   );
