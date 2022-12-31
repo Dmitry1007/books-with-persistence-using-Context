@@ -1,17 +1,25 @@
-function BookCreate({ createBook }) {
+import { useState } from "react";
+
+function BookCreate({ onCreate }) {
+  const [title, setTitle] = useState("");
   
-  function handleCreate() {
-    createBook({
-      id: 1,
-      title: "The Hobbit",
-    });
+const handleSubmit = (event) => {
+    event.preventDefault();
+    onCreate({ title });
+    setTitle("");
+}
+
+  const handleChange = (event) => {
+    setTitle(event.target.value);
   }
 
   return (
-    <div>BookCreate
-      <button title="Create" onClick={handleCreate}></button>
-    </div>
-  )
+    <form onSubmit={handleSubmit}>
+      <label>Title</label>
+      <input value={title} onChange={handleChange}/>
+      <button>Create</button>
+    </form>
+  );
 }
 
 export default BookCreate;
