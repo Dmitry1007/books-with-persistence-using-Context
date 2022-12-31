@@ -14,10 +14,15 @@ function App() {
       },
     ]);
   };
-  console.log("Books:", books)
+  
+  const deleteBook = (id) => {
+    setBooks(books.filter((book) => book.id !== id));
+  };
+
+  console.log("Books: ", books)
   return (
     <div className="app">
-      <BookList books={books} />
+      <BookList books={books} onDelete={deleteBook} />
       <BookCreate onCreate={createBook} />
     </div>
   );
