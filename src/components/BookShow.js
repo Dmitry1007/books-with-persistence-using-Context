@@ -8,9 +8,14 @@ function BookShow({ book, onDelete, onUpdate }) {
     onDelete(book.id);
   };
 
+  const handleUpdate = (id, title) => {
+    onUpdate(id, title);
+    setShowEdit(false);
+  };
+
   return (
      <div className="book-show">
-      {showEdit ? <BookEdit book={book} onUpdate={onUpdate} /> : book.title }
+      {showEdit ? <BookEdit book={book} onUpdate={handleUpdate} /> : book.title }
       <div className="actions">
         <button onClick={() => setShowEdit(!showEdit)}>Edit</button>
         <button onClick={handleDelete}>Delete</button>
