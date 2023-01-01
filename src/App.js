@@ -19,10 +19,19 @@ function App() {
     setBooks(books.filter((book) => book.id !== id));
   };
 
-  console.log("Books: ", books)
+  const updateBook = (id, title) => {
+    setBooks(books.map((book) => {
+      if (book.id === id) {
+        return { ...book, title };
+      }
+      return book;
+    }));
+  };
+
+  console.log("books", books)
   return (
     <div className="app">
-      <BookList books={books} onDelete={deleteBook} />
+      <BookList books={books} onDelete={deleteBook} onUpdate={updateBook} />
       <BookCreate onCreate={createBook} />
     </div>
   );
