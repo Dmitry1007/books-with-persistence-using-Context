@@ -17,8 +17,8 @@ function BookShow({ book, onDelete, onUpdate }) {
      <div className="book-show">
       {showEdit ? <BookEdit book={book} onUpdate={handleUpdate} /> : book.title }
       <div className="actions">
-        <button onClick={() => setShowEdit(!showEdit)}>Edit</button>
-        <button onClick={handleDelete}>Delete</button>
+        <button className="edit" onClick={() => setShowEdit(!showEdit)}>Edit</button>
+        <button className="delete" onClick={handleDelete}>Delete</button>
       </div>
     </div>
   );

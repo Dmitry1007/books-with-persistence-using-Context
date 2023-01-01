@@ -8,7 +8,7 @@ function BookCreate({ onCreate }) {
   };
 
   const handleSubmit = (event) => {
-  event.preventDefault();
+    event.preventDefault();
     onCreate(title);
     setTitle("");
   };
