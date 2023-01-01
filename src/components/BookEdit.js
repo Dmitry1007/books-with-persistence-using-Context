@@ -13,14 +13,11 @@ function BookEdit({ book, onUpdate }) {
   };
 
   return (
-    <div className="book-edit">
-      <h3>Edit Book</h3>
-      <form onSubmit={handleSubmit} >
-        <label>Title</label>
-        <input className="input" value={title} onChange={handleChange} />
-        <button className="button">Update</button>
-      </form>
-    </div>
+    <form className="book-edit" onSubmit={handleSubmit}>
+      <label>Edit Title</label>
+      <input className="input" value={title} onChange={handleChange} />
+      <button className="button is-primary">Update</button>
+    </form>
   );
 }
 
