@@ -25,12 +25,15 @@ function App() {
   };
 
   const editBook = (id, title) => {
-    setBooks(books.map((book) => {
-      if (book.id === id) {
-        return { ...book, title };
-      }
-      return book;
-    }));
+    axios.put(`http://localhost:3001/books/${id}`, { title }).then((res) => {
+      setBooks(books.map((book) => {
+        if (book.id === id) {
+          return res.data;
+        } else {
+          return book;
+        }
+      }));
+    });
   };
 
   return (
