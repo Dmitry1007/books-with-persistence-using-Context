@@ -19,7 +19,9 @@ function App() {
   };
   
   const deleteBook = (id) => {
-    setBooks(books.filter((book) => book.id !== id));
+    axios.delete(`http://localhost:3001/books/${id}`).then((res) => {
+      setBooks(books.filter((book) => book.id !== id));
+    });
   };
 
   const editBook = (id, title) => {
