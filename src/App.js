@@ -28,7 +28,7 @@ function App() {
     axios.put(`http://localhost:3001/books/${id}`, { title }).then((res) => {
       setBooks(books.map((book) => {
         if (book.id === id) {
-          return res.data;
+          return {...book, ...res.data};
         } else {
           return book;
         }
