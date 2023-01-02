@@ -28,9 +28,9 @@ function App() {
     }));
   };
 
-  console.log("books", books)
   return (
     <div className="app">
+      <h1>Reading List</h1>
       <BookList books={books} onDelete={deleteBook} onEdit={editBook} />
       <BookCreate onCreate={createBook} />
     </div>
