@@ -1,10 +1,16 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BookCreate from "./components/BookCreate";
 import BookList from "./components/BookList";
 
 function App() {
   const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/books").then((res) => {
+      setBooks(res.data);
+    });
+  }, []);
 
   const createBook = async (title) => {
     await axios.post("http://localhost:3001/books", { title }).then((res) => {
