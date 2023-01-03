@@ -1,9 +1,9 @@
-import { useContext, useState } from "react";
-import BooksContext from "../context/books";
+import { useState } from "react";
+import BooksContext from "../hooks/use-books-context";
 
 function BookCreate() {
   const [title, setTitle] = useState("");
-  const { createBook } = useContext(BooksContext);
+  const { createBook } = BooksContext();
 
   const handleChange = (event) => {
     setTitle(event.target.value);
