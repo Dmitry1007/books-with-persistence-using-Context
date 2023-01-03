@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useCallback } from "react";
 import axios from "axios";
 
 const BooksContext = createContext();
@@ -11,6 +11,8 @@ function Provider({ children }) {
       setBooks(res.data);
     });
   };
+
+  const stableFetchBooks = useCallback(fetchBooks, []);
 
   const createBook = async (title) => {
     await axios.post("http://localhost:3001/books", { title }).then((res) => {
@@ -39,7 +41,7 @@ function Provider({ children }) {
   };
 
   return (
-    <BooksContext.Provider value={{ books, fetchBooks, createBook, deleteBook, editBook }}>
+    <BooksContext.Provider value={{ books, stableFetchBooks, createBook, deleteBook, editBook }}>
       {children}
     </BooksContext.Provider>
   );
